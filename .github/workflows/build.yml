@@ -36,6 +36,8 @@ jobs:
       run: cmake -Bbuild -H.
     - name: cmake make
       run: cmake --build build/ --target all
+      env:
+        MAKEFLAGS: "-j2"
     # run tests
     - name: run test 1
       run: build/tst/Example1_tst
