@@ -43,3 +43,9 @@ jobs:
       run: build/tst/Example1_tst
     - name: run test 2
       run: build/tst/Example2_tst
+    # upload artifact, example binary
+    - name: Upload Example binary
+      uses: actions/upload-artifact@v1
+      with:
+        name: upload binary
+        path: build/src/Example
