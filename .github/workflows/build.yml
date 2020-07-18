@@ -14,7 +14,7 @@ jobs:
       uses: actions/cache@v1.0.3
       id: cache-boost
       with:
-        path: "~/boost"
+        path: "~/lib/boost"
         key: libboost1.65-dev
     - name: Install boost
       env:

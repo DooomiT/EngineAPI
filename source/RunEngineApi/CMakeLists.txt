@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.18)
+target_include_directories(
+    ${PROJECT_ROOT}/source/inc/
+)
+target_link_libraries(
+    ${BOOST_LIBRARY}
+)
+add_library(
+    
+)
