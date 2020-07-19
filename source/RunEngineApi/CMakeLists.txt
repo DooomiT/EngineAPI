@@ -6,7 +6,7 @@ add_executable(${SWC}
 )
 
 target_include_directories(${SWC}
-    PUBLIC:
+    PUBLIC
     ${PROJECT_ROOT}/source/EngineApi/inc/
 )
 # target_link_libraries(${SWC}
