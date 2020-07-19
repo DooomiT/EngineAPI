@@ -9,9 +9,9 @@ target_include_directories(${SWC}
     PUBLIC
     ${PROJECT_ROOT}/source/EngineApi/inc/
 )
-# target_link_libraries(${SWC}
-#     ${BOOST_LIBRARY}
-# )
-# add_library(
-    
-# )
+target_link_libraries(${SWC}
+PUBLIC
+    EngineApi
+    ${BOOST_LIBRARY}
+)
+

@@ -1,3 +1,4 @@
+#pragma once 
 class IHandler
 {
     /*Define what the Handler needs*/
