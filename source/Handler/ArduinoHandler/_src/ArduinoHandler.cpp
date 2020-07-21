@@ -1,11 +1,12 @@
 #include "../_inc/ArduinoHandler.hpp"
 //TODO: fix includes
+std::shared_ptr<ArduinoHandler> ArduinoHandler::s_instance;
 
-bool ArduinoHandler::getInstance(ArduinoHandler &arduino_handler)
+bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &arduino_handler)
 {
     if (ArduinoHandler::s_instance == nullptr)
-        ArduinoHandler::s_instance = new ArduinoHandler();
-    arduino_handler = *s_instance;
+        s_instance.reset(new ArduinoHandler);
+    arduino_handler = s_instance;
     return true;
 }
 

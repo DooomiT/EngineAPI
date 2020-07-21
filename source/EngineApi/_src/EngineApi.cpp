@@ -1,5 +1,8 @@
 #include "EngineApi.hpp"
 
+std::shared_ptr<EngineApi> EngineApi::s_instance;
+std::shared_ptr<ArduinoHandler> EngineApi::s_handler;
+
 EngineApi::EngineApi()
 {
     if (ArduinoHandler::getInstance(s_handler))
@@ -12,11 +15,11 @@ EngineApi::EngineApi()
     }
 }
 
-bool EngineApi::getInstance(EngineApi &engine_api)
+bool EngineApi::getInstance(std::shared_ptr<EngineApi> &engine_api)
 {
     if (EngineApi::s_instance == nullptr)
-        EngineApi::s_instance = new EngineApi();
-    engine_api = *s_instance;
+        s_instance.reset(new EngineApi);
+    engine_api = s_instance;
     return true;
 }
 
