@@ -1,8 +1,9 @@
 #include <iostream>
+#include <memory>
 #include "EngineApi.hpp"
 
 int main(void)
 {
-    EngineApi app;
+    std::shared_ptr<EngineApi> app;
     EngineApi::getInstance(app);
 }
