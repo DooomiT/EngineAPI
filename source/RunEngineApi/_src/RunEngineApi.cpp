@@ -4,6 +4,5 @@
 int main(void)
 {
     EngineApi app;
-    int val = 10;
-    app.setNumber(val);
+    EngineApi::getInstance(app);
 }

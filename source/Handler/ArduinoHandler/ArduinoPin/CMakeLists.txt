@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
-set(SWC ArduinoHandler)
+set(SWC ArduinoPin)
 
 add_library(${SWC} STATIC
-    ${CMAKE_CURRENT_LIST_DIR}/_src/ArduinoHandler.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/_src/ArduinoPin.cpp
     ${CMAKE_CURRENT_LIST_DIR}/_inc/
     ${CMAKE_CURRENT_LIST_DIR}/../_inc/
 )
@@ -11,5 +11,5 @@ target_include_directories(${SWC}
     PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/_inc/
     ${CMAKE_CURRENT_LIST_DIR}/../_inc/
-    ${CMAKE_CURRENT_LIST_DIR}/../../EngineApi/_inc/
+    ${CMAKE_CURRENT_LIST_DIR}/../../_inc/
 )

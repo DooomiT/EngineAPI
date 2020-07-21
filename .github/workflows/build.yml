@@ -48,4 +48,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: upload binary
-        path: build/src/Example
+        path: build/_src/Example
