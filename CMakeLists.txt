@@ -7,3 +7,19 @@ set(CMAKE_CXX_STANDARD 14)
 find_package(Boost 1.65)
 message(STATUS "Boost version: ${Boost_VERSION}")
 add_subdirectory(source)
+
+# Testing
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    include(CTest)
+endif()
+
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
+
+option(PACKAGE_TESTS "Build the tests" ON)
+if(PACKAGE_TESTS)
+    enable_testing()
+    include(GoogleTest)
+    add_subdirectory("${PROJECT_ROOT}/lib/extern/googletest" "extern/googletest")
+endif()

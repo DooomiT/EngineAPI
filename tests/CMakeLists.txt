@@ -1,0 +1,1 @@
+add_test(NAME Logger_UT COMMAND Logger)
