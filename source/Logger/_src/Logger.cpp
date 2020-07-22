@@ -2,6 +2,10 @@
 
 std::shared_ptr<Logger> Logger::s_instance;
 
+Logger::Logger() : m_logger_state(LoggerState::ON)
+{
+}
+
 bool Logger::getInstance(std::shared_ptr<Logger> &f_logger)
 {
     if (Logger::s_instance == nullptr)
@@ -12,7 +16,7 @@ bool Logger::getInstance(std::shared_ptr<Logger> &f_logger)
 
 bool Logger::getState(LoggerState &f_logger_state)
 {
-    m_logger_state = f_logger_state;
+    f_logger_state = m_logger_state;
     return true;
 }
 

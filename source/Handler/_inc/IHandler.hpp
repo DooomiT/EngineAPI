@@ -3,5 +3,5 @@
 class IHandler
 {
     /*Define what the Handler needs*/
-    virtual bool getState(EngineState &) = 0;
+    virtual bool getEngineState(EngineState &f_engine_state) = 0;
 };

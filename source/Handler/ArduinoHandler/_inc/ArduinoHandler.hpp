@@ -6,10 +6,12 @@
 class ArduinoHandler : public IArduinoHandler
 {
 public:
-  static bool getInstance(std::shared_ptr<ArduinoHandler> &arduino_handler);
-  bool getState(EngineState &);
-  bool addPin(uint8_t pin_number);
+  ArduinoHandler();
+  static bool getInstance(std::shared_ptr<ArduinoHandler> &f_arduino_handler);
+  bool getEngineState(EngineState &f_engine_state);
+  bool addPin(uint8_t f_pin_number);
 
 private:
   static std::shared_ptr<ArduinoHandler> s_instance;
+  EngineState m_engine_state;
 };

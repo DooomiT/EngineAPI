@@ -3,6 +3,6 @@
 //TODO: fix includes
 class IArduinoHandler : public IHandler
 {
-    virtual bool getState(EngineState &) = 0;
-    virtual bool addPin(uint8_t pin_number) = 0;
+    virtual bool getEngineState(EngineState &f_engine_state) = 0;
+    virtual bool addPin(uint8_t f_pin_number) = 0;
 };

@@ -2,21 +2,23 @@
 //TODO: fix includes
 std::shared_ptr<ArduinoHandler> ArduinoHandler::s_instance;
 
-bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &arduino_handler)
+ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP) {}
+
+bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &f_arduino_handler)
 {
     if (ArduinoHandler::s_instance == nullptr)
         s_instance.reset(new ArduinoHandler);
-    arduino_handler = s_instance;
+    f_arduino_handler = s_instance;
     return true;
 }
 
-bool ArduinoHandler::getState(EngineState &engine_state)
+bool ArduinoHandler::getEngineState(EngineState &f_engine_state)
 {
-    //TODO: Implement
+    f_engine_state = m_engine_state;
     return true;
 }
 
-bool ArduinoHandler::addPin(uint8_t pin_number)
+bool ArduinoHandler::addPin(uint8_t f_pin_number)
 {
     //TODO: Implement
     return true;

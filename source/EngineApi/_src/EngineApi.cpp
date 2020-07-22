@@ -15,16 +15,18 @@ EngineApi::EngineApi()
     }
 }
 
-bool EngineApi::getInstance(std::shared_ptr<EngineApi> &engine_api)
+bool EngineApi::getInstance(std::shared_ptr<EngineApi> &f_engine_api)
 {
     if (EngineApi::s_instance == nullptr)
         s_instance.reset(new EngineApi);
-    engine_api = s_instance;
+    f_engine_api = s_instance;
     return true;
 }
 
-bool EngineApi::getState(EngineState &engine_state)
+bool EngineApi::getEngineState(EngineState &f_engine_state)
 {
     //TODO: Implement
-    return true;
+    bool return_value = false;
+    return_value = s_handler.get()->getEngineState(f_engine_state);
+    return return_value;
 }

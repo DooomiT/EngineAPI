@@ -4,7 +4,7 @@
 class Logger
 {
 public:
-    Logger() = default;
+    Logger();
     static bool getInstance(std::shared_ptr<Logger> &f_logger);
     bool getState(LoggerState &f_logger_state);
     bool logFatal(std::string &f_log_string);
