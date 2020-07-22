@@ -8,8 +8,8 @@ class EngineApi : public IEngineApi
 {
 public:
 	EngineApi();
-	static bool getInstance(std::shared_ptr<EngineApi> &engine_api);
-	bool getState(EngineState &engine_state);
+	static bool getInstance(std::shared_ptr<EngineApi> &f_engine_api);
+	bool getEngineState(EngineState &f_engine_state);
 	/* Use other funcs from Handler etc... */
 
 private:
