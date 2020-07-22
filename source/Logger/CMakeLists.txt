@@ -1,12 +1,19 @@
 cmake_minimum_required(VERSION 3.13)
-set(SWC Logger)
+set(SWC_NAME Logger)
 
-add_library(${SWC} STATIC
-    ${CMAKE_CURRENT_LIST_DIR}/_src/Logger.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/_inc/
+add_library(${SWC_NAME} OBJECT)
+
+target_sources(${SWC_NAME}
+    PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/_src/Logger.cpp
 )
-message(${CMAKE_CURRENT_LIST_DIR})
-target_include_directories(${SWC}
+
+target_include_directories(${SWC_NAME}
     PUBLIC
-    ${CMAKE_CURRENT_LIST_DIR}/_inc/
+    ${PROJECT_ROOT}/source/EngineApi/_inc/
+    ${PROJECT_ROOT}/source/_inc/
+    PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/_inc
+
 )
+
