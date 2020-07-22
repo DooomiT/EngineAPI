@@ -39,3 +39,22 @@ bool Logger::logInfo(std::string &f_log_string)
 {
     return true;
 }
+
+bool writeLogString()
+{
+    //TODO: Open File Write all strings from Vector to File
+    //TODO: Empty Logstring
+}
+
+bool checkLogStringSize()
+{
+    //TODO: Check LogStringSize > 10 Kb -> ret true
+}
+
+bool printLogString()
+{
+    for(auto log_string: m_log_string_vect)
+    {
+        std::cout << *log_string << std::endl;
+    }
+}

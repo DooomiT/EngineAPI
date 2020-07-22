@@ -10,10 +10,15 @@ target_sources(${SWC_NAME}
 
 target_include_directories(${SWC_NAME}
     PUBLIC
-    ${PROJECT_ROOT}/source/EngineApi/_inc/
-    ${PROJECT_ROOT}/source/_inc/
+        ${PROJECT_ROOT}/source/EngineApi/_inc/
+        ${PROJECT_ROOT}/source/_inc/
+        ${Boost_INCLUDE_DIRS} 
     PRIVATE
-    ${CMAKE_CURRENT_LIST_DIR}/_inc
+        ${CMAKE_CURRENT_LIST_DIR}/_inc
+)
 
+target_link_libraries(${SWC_NAME}
+    PUBLIC 
+        ${Boost_LIBRARIES}
 )
 

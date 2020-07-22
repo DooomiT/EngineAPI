@@ -1,4 +1,6 @@
 #include <memory>
+#include <vector>
+// #include "boost/filesystem" TODO: Fix boost include with cmake
 #include "ILogger.hpp"
 
 class Logger
@@ -15,4 +17,10 @@ public:
 private:
     static std::shared_ptr<Logger> s_instance;
     LoggerState m_logger_state;
+    std::vector<std::string> m_log_string_vect;
+
+    bool writeLogString();
+    bool checkLogStringSize();
+    bool printLogString();
+
 };

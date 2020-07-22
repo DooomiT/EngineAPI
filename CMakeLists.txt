@@ -3,8 +3,13 @@ project(EngineApi VERSION 0.0.1 LANGUAGES CXX)
 
 set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
 set(CMAKE_CXX_STANDARD 11)
-find_package(Boost 1.65)
+
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+find_package(Boost 1.65 REQUIRED)
 message(STATUS "Boost version: ${Boost_VERSION}")
+
 add_subdirectory(source)
 
 # Testing
