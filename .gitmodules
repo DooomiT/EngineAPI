@@ -1,4 +1,0 @@
-[submodule "lib/extern/googletest"]
-	path = lib/extern/googletest
-	url = https://github.com/google/googletest.git
-	branch = 1.10.x

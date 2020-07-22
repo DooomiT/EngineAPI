@@ -13,3 +13,9 @@ enum ArduinoPinMode
     INPUT = 0,
     OUTPUT = 1
 };
+
+enum LoggerState
+{
+    ON = 0,
+    OFF = 1
+};
