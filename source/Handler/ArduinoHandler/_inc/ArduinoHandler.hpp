@@ -2,6 +2,7 @@
 #include <iostream>
 #include <memory>
 #include "IArduinoHandler.hpp"
+#include "C:\Users\flori\OneDrive\Documents\Visual Studio Code\C\EngineAPI\source\Logger\_inc\Logger.hpp"
 
 class ArduinoHandler : public IArduinoHandler
 {
@@ -13,5 +14,6 @@ public:
 
 private:
   static std::shared_ptr<ArduinoHandler> s_instance;
+  static std::shared_ptr<Logger> s_logger;
   EngineState m_engine_state;
 };

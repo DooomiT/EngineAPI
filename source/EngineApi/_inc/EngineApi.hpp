@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "IEngineApi.hpp"
 #include <memory>
+#include "IEngineApi.hpp"
 #include "ArduinoHandler.hpp"
 
 class EngineApi : public IEngineApi
@@ -10,6 +10,7 @@ public:
 	EngineApi();
 	static bool getInstance(std::shared_ptr<EngineApi> &f_engine_api);
 	bool getEngineState(EngineState &f_engine_state);
+	bool addPin(uint8_t f_pin_number);
 	/* Use other funcs from Handler etc... */
 
 private:
