@@ -11,7 +11,6 @@ target_include_directories(${SWC}
 )
 target_link_libraries(${SWC}
 PUBLIC
-    EngineApi
-    ${BOOST_LIBRARY}
+    EngineApi    
 )
 

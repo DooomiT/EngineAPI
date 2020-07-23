@@ -5,7 +5,7 @@ set(SWC_NAME EngineApi)
 
 add_library(${SWC_NAME} STATIC
     $<TARGET_OBJECTS:ArduinoHandler>
-    # $<TARGET_OBJECTS:Logger>
+    $<TARGET_OBJECTS:Logger>
 )
 target_sources(${SWC_NAME}
     PRIVATE
@@ -17,7 +17,6 @@ target_include_directories(${SWC_NAME}
     PUBLIC
         ${PROJECT_ROOT}/source/Handler/ArduinoHandler/_inc
         ${PROJECT_ROOT}/source/_inc
-
     PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/_inc
 )
