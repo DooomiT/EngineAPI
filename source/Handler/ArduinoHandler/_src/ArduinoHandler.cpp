@@ -3,9 +3,9 @@
 std::shared_ptr<ArduinoHandler> ArduinoHandler::s_instance;
 std::shared_ptr<Logger> ArduinoHandler::s_logger;
 
-
-ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP) {
-    if(Logger::getInstance(s_logger))
+ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP)
+{
+    if (Logger::getInstance(s_logger))
     {
         //DONE
     }
@@ -13,7 +13,6 @@ ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP) {
     {
         //ERROR
     }
-    
 }
 
 bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &f_arduino_handler)
