@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.13)
 project(EngineApi VERSION 0.0.1 LANGUAGES CXX)
 
 set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
