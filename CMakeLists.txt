@@ -2,9 +2,8 @@ cmake_minimum_required(VERSION 3.13)
 project(EngineApi VERSION 0.0.1 LANGUAGES CXX)
 
 set(PROJECT_ROOT ${CMAKE_CURRENT_LIST_DIR})
-set(CMAKE_CXX_STANDARD 11)
-find_package(Boost 1.65)
-message(STATUS "Boost version: ${Boost_VERSION}")
+set(CMAKE_CXX_STANDARD 17)
+
 add_subdirectory(source)
 
 # Testing
@@ -15,6 +14,8 @@ endif()
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
     add_subdirectory(tests)
 endif()
+
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_LIST_DIR}/apps/bin)
 
 # TODO: Fix crtdbg missing (googletest)
 # option(PACKAGE_TESTS "Build the tests" ON)
