@@ -30,3 +30,8 @@ bool EngineApi::getEngineState(EngineState &f_engine_state)
     return_value = s_handler.get()->getEngineState(f_engine_state);
     return return_value;
 }
+
+bool EngineApi::addPin(uint8_t pin_number)
+{
+    return s_handler.get()->addPin(pin_number);
+}
