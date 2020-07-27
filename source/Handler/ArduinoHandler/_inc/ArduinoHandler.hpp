@@ -4,8 +4,8 @@
 #include <map>
 #include "IArduinoHandler.hpp"
 #include "EngineApiDatatypes.hpp"
-#include "C:\Users\flori\OneDrive\Documents\Visual Studio Code\C\EngineAPI\source\Logger\_inc\Logger.hpp"
-
+// #include "Logger.hpp"
+#include "../../Logger/_inc/Logger.hpp"
 class ArduinoHandler : public IArduinoHandler
 {
 public:
