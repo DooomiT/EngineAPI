@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "EngineApi.hpp"
+#include "EngineApiDatatypes.hpp"
 
 int main(void)
 {
@@ -17,8 +18,16 @@ int main(void)
     {
         std::cout << "Engine State not received!" << std::endl;
     }
-    for(int i = 0; i <= 1000; ++i)
-    {
-        app.get()->addPin(i);
-    }
+
+    app.get()->addPin(1);
+    app.get()->addPin(1);
+    app.get()->addPin(2);
+
+    uint8_t x = 25;
+    ArduinoPinMode mode_x = ArduinoPinMode::INPUT;
+
+    app.get()->setPinMode(1, mode_x);
+    app.get()->setPinValue(1, x);
+    app.get()->setPinMode(3, mode_x);
+    app.get()->setPinValue(3, x);
 }
