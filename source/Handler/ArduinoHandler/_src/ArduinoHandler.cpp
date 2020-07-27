@@ -1,4 +1,6 @@
 #include "../_inc/ArduinoHandler.hpp"
+#include "EngineApiDatatypes.hpp"
+
 //TODO: fix includes
 std::shared_ptr<ArduinoHandler> ArduinoHandler::s_instance;
 std::shared_ptr<Logger> ArduinoHandler::s_logger;
@@ -35,7 +37,15 @@ bool ArduinoHandler::getEngineState(EngineState &f_engine_state)
 
 bool ArduinoHandler::addPin(uint8_t f_pin_number)
 {
-    //TODO: Implement
+    ArduinoPin new_pin(f_pin_number);
+    m_arduino_pin_map.insert(std::pair<uint8_t, ArduinoPin>(f_pin_number, new_pin));
     s_logger.get()->logDebug("ArduinoHandler::addPin: added Pin");
+    return true;
+}
+
+bool ArduinoHandler::getPin(uint8_t f_pin_number, ArduinoPin &f_pin)
+{
+    f_pin = m_arduino_pin_map.find(f_pin_number)->second;
+    // make bool work
     return true;
 }

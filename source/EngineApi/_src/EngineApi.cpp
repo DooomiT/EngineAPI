@@ -35,3 +35,7 @@ bool EngineApi::addPin(uint8_t pin_number)
 {
     return s_handler.get()->addPin(pin_number);
 }
+
+bool EngineApi::getPin(uint8_t f_pin_number, ArduinoPin &f_pin){
+    return s_handler.get()->getPin(f_pin_number, f_pin);
+}
