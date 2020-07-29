@@ -8,10 +8,16 @@ enum EngineState
     ERROR = 4
 };
 
-enum ArduinoPinMode
+enum ArdPinDir
 {
     INPUT = 0,
     OUTPUT = 1
+};
+
+enum ArdPinMode
+{
+    ANALOG = 0,
+    DIGITAL = 1
 };
 
 enum LoggerState
@@ -25,7 +31,7 @@ class IArduinoPin
 public:
     IArduinoPin(uint8_t pin_number);
     virtual bool setPinValue(uint8_t pin_number) = 0;
-    virtual bool setPinMode(ArduinoPinMode pin_mode) = 0;
+    virtual bool setPinDir(ArdPinDir f_pin_dir) = 0;
 };
 
 class ArduinoPin
@@ -33,16 +39,21 @@ class ArduinoPin
 public:
     ArduinoPin(uint8_t &pin_number) : m_pin_number(pin_number),
                                       m_pin_value(0),
-                                      m_pin_mode(ArduinoPinMode::INPUT) {}
-    bool setPinValue(uint8_t &pin_value)
+                                      m_pin_dir(ArdPinDir::INPUT) {}
+    bool setPinValue(uint8_t &f_pin_value)
     {
-        m_pin_value = pin_value;
+        m_pin_value = f_pin_value;
         //TODO Rangechecks
         return true;
     }
-    bool setPinMode(ArduinoPinMode &pin_mode)
+    bool setPinDir(ArdPinDir &f_pin_dir)
     {
-        m_pin_mode = pin_mode;
+        m_pin_dir = f_pin_dir;
+        return true;
+    }
+    bool setPinMode(ArdPinMode &f_pin_mode)
+    {
+        m_pin_mode = f_pin_mode;
         return true;
     }
 
@@ -54,5 +65,6 @@ private:
     }
     uint8_t m_pin_number;
     uint8_t m_pin_value;
-    ArduinoPinMode m_pin_mode;
+    ArdPinDir m_pin_dir;
+    ArdPinMode m_pin_mode;
 };

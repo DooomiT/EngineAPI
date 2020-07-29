@@ -24,10 +24,10 @@ int main(void)
     app.get()->addPin(2);
 
     uint8_t x = 25;
-    ArduinoPinMode mode_x = ArduinoPinMode::INPUT;
+    ArdPinDir mode_x = ArdPinDir::INPUT;
 
-    app.get()->setPinMode(1, mode_x);
+    app.get()->setPinDir(1, mode_x);
     app.get()->setPinValue(1, x);
-    app.get()->setPinMode(3, mode_x);
+    app.get()->setPinDir(3, mode_x);
     app.get()->setPinValue(3, x);
 }

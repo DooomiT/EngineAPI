@@ -75,35 +75,53 @@ bool ArduinoHandler::getPin(uint8_t f_pin_number, ArduinoPin &f_pin)
     return is_available;
 }
 
-bool ArduinoHandler::setPinValue(uint8_t f_pin_number, uint8_t &pin_value)
+bool ArduinoHandler::setPinValue(uint8_t f_pin_number, uint8_t &f_pin_value)
 {
     bool is_available{false};
     std::string log_string{""};
     log_string += "ArduinoHandler::setPinValue: Set Pin ";
     log_string += std::to_string(f_pin_number);
     log_string += " to value: ";
-    log_string += std::to_string(pin_value);
+    log_string += std::to_string(f_pin_value);
     auto tmp_iterator = m_arduino_pin_map.find(f_pin_number);
     if (tmp_iterator != m_arduino_pin_map.end())
     {
-        tmp_iterator->second.setPinValue(pin_value);
+        tmp_iterator->second.setPinValue(f_pin_value);
         s_logger.get()->logDebug(log_string);
         is_available = true;
     }
     return is_available;
 }
-bool ArduinoHandler::setPinMode(uint8_t f_pin_number, ArduinoPinMode &pin_mode)
+bool ArduinoHandler::setPinDir(uint8_t f_pin_number, ArdPinDir &f_pin_dir)
 {
     bool is_available{false};
     std::string log_string{""};
-    log_string += "ArduinoHandler::setPinMode: Set Pin ";
+    log_string += "ArduinoHandler::setPinDir: Set Pin ";
     log_string += std::to_string(f_pin_number);
     log_string += " to mode: ";
-    log_string += std::to_string(pin_mode);
+    log_string += std::to_string(f_pin_dir);
     auto tmp_iterator = m_arduino_pin_map.find(f_pin_number);
     if (tmp_iterator != m_arduino_pin_map.end())
     {
-        tmp_iterator->second.setPinMode(pin_mode);
+        tmp_iterator->second.setPinDir(f_pin_dir);
+        s_logger.get()->logDebug(log_string);
+        is_available = true;
+    }
+    return is_available;
+}
+
+bool ArduinoHandler::setPinMode(uint8_t f_pin_number, ArdPinMode &f_pin_mode)
+{
+    bool is_available{false};
+    std::string log_string{""};
+    log_string += "ArduinoHandler::setPinDir: Set Pin ";
+    log_string += std::to_string(f_pin_number);
+    log_string += " to mode: ";
+    log_string += std::to_string(f_pin_mode);
+    auto tmp_iterator = m_arduino_pin_map.find(f_pin_number);
+    if (tmp_iterator != m_arduino_pin_map.end())
+    {
+        tmp_iterator->second.setPinMode(f_pin_mode);
         s_logger.get()->logDebug(log_string);
         is_available = true;
     }
