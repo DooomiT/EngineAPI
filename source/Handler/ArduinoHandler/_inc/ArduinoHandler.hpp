@@ -14,9 +14,9 @@ public:
   bool getEngineState(EngineState &f_engine_state);
   bool addPin(uint8_t f_pin_number);
   bool getPin(uint8_t f_pin_number, ArduinoPin &f_pin);
-  bool setPinValue(uint8_t f_pin_number, uint8_t &pin_value);
-  bool setPinMode(uint8_t f_pin_number, ArduinoPinMode &pin_mode);
-  // TODO Add Handle Serial -> sends all serial information and checks connection + handshake
+  bool setPinValue(uint8_t f_pin_number, uint8_t &f_pin_value);
+  bool setPinDir(uint8_t f_pin_number, ArdPinDir &f_pin_dir);
+  bool setPinMode(uint8_t f_pin_number, ArdPinMode &f_pin_mode);
 
 private:
   static std::shared_ptr<ArduinoHandler> s_instance;

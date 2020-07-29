@@ -9,8 +9,9 @@ int main(void)
     EngineApi::getInstance(app);
     EngineApi *instance = app.get();
     EngineState engine_state;
+    EngineApi *instance = app.get();
     bool return_value = false;
-    return_value = app.get()->getEngineState(engine_state);
+    return_value = instance->getEngineState(engine_state);
     if (return_value)
     {
         std::cout << "Engine State received: " << engine_state << std::endl;
@@ -25,10 +26,13 @@ int main(void)
     instance->addPin(2);
 
     uint8_t x = 25;
-    ArduinoPinMode mode_x = ArduinoPinMode::INPUT;
+    ArdPinDir dir_x = ArdPinDir::INPUT;
+    ArdPinMode mode_x = ArdPinMode::ANALOG;
 
+    instance->setPinDir(1, dir_x);
     instance->setPinMode(1, mode_x);
     instance->setPinValue(1, x);
+    instance->setPinDir(3, dir_x);
     instance->setPinMode(3, mode_x);
     instance->setPinValue(3, x);
 }
