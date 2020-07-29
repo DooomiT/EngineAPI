@@ -21,10 +21,12 @@ ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP)
 
 bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &f_arduino_handler)
 {
+    std::string log_string{""};
+    log_string += "ArduinoHandler::getInstance: created instance";
     if (ArduinoHandler::s_instance == nullptr)
     {
         s_instance.reset(new ArduinoHandler);
-        s_logger.get()->logDebug("ArduinoHandler::getInstance: created instance");
+        s_logger.get()->logDebug(log_string);
     }
     f_arduino_handler = s_instance;
     return true;
@@ -32,21 +34,25 @@ bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &f_arduino_hand
 
 bool ArduinoHandler::getEngineState(EngineState &f_engine_state)
 {
+    std::string log_string{""};
+    log_string += "ArduinoHandler::getEngineState: returned engine state";
     f_engine_state = m_engine_state;
-    s_logger.get()->logDebug("ArduinoHandler::getEngineState: returned engine state");
+    s_logger.get()->logDebug(log_string);
     return true;
 }
 
 bool ArduinoHandler::addPin(uint8_t f_pin_number)
 {
-    //TODO: checki if ArduinoPin is already set
+    //TODO: check if ArduinoPin is already set
     bool is_not_available{false};
+    std::string log_string{""};
+    log_string += "ArduinoHandler::addPin: added Pin";
     auto tmp_iterator = m_arduino_pin_map.find(f_pin_number);
     if (tmp_iterator == m_arduino_pin_map.end())
     {
         ArduinoPin new_pin(f_pin_number);
         m_arduino_pin_map.insert(std::pair<uint8_t, ArduinoPin>(f_pin_number, new_pin));
-        s_logger.get()->logDebug("ArduinoHandler::addPin: added Pin");
+        s_logger.get()->logDebug(log_string);
         is_not_available = true;
     }
     else
@@ -59,18 +65,21 @@ bool ArduinoHandler::addPin(uint8_t f_pin_number)
 
 bool ArduinoHandler::getPin(uint8_t f_pin_number, ArduinoPin &f_pin)
 {
-    ArduinoPin *tmp_pin{nullptr};
     bool is_available{false};
+    std::string log_string{""};
+    log_string += "ArduinoHandler::getPin: ";
     auto tmp_iterator = m_arduino_pin_map.find(f_pin_number);
     if (tmp_iterator != m_arduino_pin_map.end())
     {
+        log_string += "received Pin";
         f_pin = tmp_iterator->second;
-        s_logger.get()->logDebug("ArduinoHandler::getPin: received Pin");
+        s_logger.get()->logDebug(log_string);
         is_available = true;
     }
     else
     {
-        s_logger.get()->logDebug("ArduinoHandler::getPin: Pin not found");
+        log_string += "Pin not found";
+        s_logger.get()->logDebug(log_string);
     }
     return is_available;
 }

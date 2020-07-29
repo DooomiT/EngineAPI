@@ -16,6 +16,7 @@ public:
   bool getPin(uint8_t f_pin_number, ArduinoPin &f_pin);
   bool setPinValue(uint8_t f_pin_number, uint8_t &pin_value);
   bool setPinMode(uint8_t f_pin_number, ArduinoPinMode &pin_mode);
+  // TODO Add Handle Serial -> sends all serial information and checks connection + handshake
 
 private:
   static std::shared_ptr<ArduinoHandler> s_instance;
