@@ -9,7 +9,6 @@ int main(void)
     EngineApi::getInstance(app);
     EngineApi *instance = app.get();
     EngineState engine_state;
-    EngineApi *instance = app.get();
     bool return_value = false;
     return_value = instance->getEngineState(engine_state);
     if (return_value)
