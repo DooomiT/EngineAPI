@@ -1,14 +1,16 @@
 #include <iostream>
 #include <memory>
 #include "EngineApi.hpp"
+#include "EngineApiDatatypes.hpp"
 
 int main(void)
 {
     std::shared_ptr<EngineApi> app;
     EngineApi::getInstance(app);
+    EngineApi *instance = app.get();
     EngineState engine_state;
     bool return_value = false;
-    return_value = app.get()->getEngineState(engine_state);
+    return_value = instance->getEngineState(engine_state);
     if (return_value)
     {
         std::cout << "Engine State received: " << engine_state << std::endl;
@@ -17,8 +19,19 @@ int main(void)
     {
         std::cout << "Engine State not received!" << std::endl;
     }
-    for(int i = 0; i <= 1000; ++i)
-    {
-        app.get()->addPin(i);
-    }
+
+    instance->addPin(1);
+    instance->addPin(1);
+    instance->addPin(2);
+
+    uint8_t x = 25;
+    ArdPinDir dir_x = ArdPinDir::INPUT;
+    ArdPinMode mode_x = ArdPinMode::ANALOG;
+
+    instance->setPinDir(1, dir_x);
+    instance->setPinMode(1, mode_x);
+    instance->setPinValue(1, x);
+    instance->setPinDir(3, dir_x);
+    instance->setPinMode(3, mode_x);
+    instance->setPinValue(3, x);
 }

@@ -35,3 +35,23 @@ bool EngineApi::addPin(uint8_t pin_number)
 {
     return s_handler.get()->addPin(pin_number);
 }
+
+bool EngineApi::getPin(uint8_t f_pin_number, ArduinoPin &f_pin)
+{
+    return s_handler.get()->getPin(f_pin_number, f_pin);
+}
+
+bool EngineApi::setPinValue(uint8_t f_pin_number, uint8_t &f_pin_value)
+{
+    return s_handler.get()->setPinValue(f_pin_number, f_pin_value);
+}
+
+bool EngineApi::setPinDir(uint8_t f_pin_number, ArdPinDir &f_pin_dir)
+{
+    return s_handler.get()->setPinDir(f_pin_number, f_pin_dir);
+}
+
+bool EngineApi::setPinMode(uint8_t f_pin_number, ArdPinMode &f_pin_mode)
+{
+    return s_handler.get()->setPinMode(f_pin_number, f_pin_mode);
+}
