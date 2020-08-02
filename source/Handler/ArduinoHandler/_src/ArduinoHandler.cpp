@@ -4,8 +4,8 @@
 // TODO: fix includes
 // TODO: Add logstring for all logs
 // TODO: Add rest of function set
-std::shared_ptr<ArduinoHandler> ArduinoHandler::s_instance;
-std::shared_ptr<Logger> ArduinoHandler::s_logger;
+std::shared_ptr<IArduinoHandler> ArduinoHandler::s_instance;
+std::shared_ptr<ILogger> ArduinoHandler::s_logger;
 
 ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP)
 {
@@ -19,7 +19,7 @@ ArduinoHandler::ArduinoHandler() : m_engine_state(SETUP)
     }
 }
 
-bool ArduinoHandler::getInstance(std::shared_ptr<ArduinoHandler> &f_arduino_handler)
+bool ArduinoHandler::getInstance(std::shared_ptr<IArduinoHandler> &f_arduino_handler)
 {
     std::string log_string{""};
     log_string += "ArduinoHandler::getInstance: created instance";

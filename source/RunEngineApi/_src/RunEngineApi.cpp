@@ -5,11 +5,10 @@
 
 int main(void)
 {
-    std::shared_ptr<EngineApi> app;
+    std::shared_ptr<IEngineApi> app;
     EngineApi::getInstance(app);
-    EngineApi *instance = app.get();
+    IEngineApi *instance = app.get();
     EngineState engine_state;
-    EngineApi *instance = app.get();
     bool return_value = false;
     return_value = instance->getEngineState(engine_state);
     if (return_value)

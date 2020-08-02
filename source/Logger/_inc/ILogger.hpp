@@ -4,6 +4,7 @@
 
 class ILogger
 {
+public:
     ILogger() = default;
     virtual bool getState(LoggerState &f_logger_state) = 0;
     virtual bool logFatal(std::string f_log_string) = 0;

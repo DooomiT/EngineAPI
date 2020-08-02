@@ -1,6 +1,6 @@
 #include "Logger.hpp"
 
-std::shared_ptr<Logger> Logger::s_instance;
+std::shared_ptr<ILogger> Logger::s_instance;
 
 Logger::Logger()
     : m_logger_state(LoggerState::ON),
@@ -8,7 +8,7 @@ Logger::Logger()
 {
 }
 
-bool Logger::getInstance(std::shared_ptr<Logger> &f_logger)
+bool Logger::getInstance(std::shared_ptr<ILogger> &f_logger)
 {
     if (Logger::s_instance == nullptr)
         s_instance.reset(new Logger);

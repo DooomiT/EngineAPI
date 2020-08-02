@@ -1,7 +1,7 @@
 #include "EngineApi.hpp"
 
-std::shared_ptr<EngineApi> EngineApi::s_instance;
-std::shared_ptr<ArduinoHandler> EngineApi::s_handler;
+std::shared_ptr<IEngineApi> EngineApi::s_instance;
+std::shared_ptr<IArduinoHandler> EngineApi::s_handler;
 
 EngineApi::EngineApi()
 {
@@ -15,7 +15,7 @@ EngineApi::EngineApi()
     }
 }
 
-bool EngineApi::getInstance(std::shared_ptr<EngineApi> &f_engine_api)
+bool EngineApi::getInstance(std::shared_ptr<IEngineApi> &f_engine_api)
 {
     if (EngineApi::s_instance == nullptr)
         s_instance.reset(new EngineApi);
